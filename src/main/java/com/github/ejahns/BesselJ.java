@@ -100,7 +100,7 @@ public class BesselJ {
 		}
 		double lastIndex = 0.0;
 		while (count-- > 0) {
-			lastIndex = findIndexAfter(zero, lastIndex+1, resolution);
+			lastIndex = findIndexAfter(zero, lastIndex, resolution);
 			indices.add(lastIndex);
 		}
 		return indices;
