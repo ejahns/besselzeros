@@ -20,7 +20,20 @@ public abstract class OscillatingFunction implements DoubleFunction<Double> {
 	 * @return the x-value of the crossing point
 	 */
 	public double findCrossing(double start, int resolution, int maxPower) {
-		boolean isPositive = (this.apply(start + 5.0 * Math.pow(10, -resolution - 1)) > 0);
+		boolean isPositive;
+		if (start > Math.pow(10, -resolution)) {
+			double step = Math.pow(10, -resolution);
+			double left = start - step;
+			double right = start + step;
+			while (Math.signum(this.apply(left -= step)) == this.apply(right += step)) {
+
+			}
+			isPositive = (this.apply(right) > 0);
+		}
+		else {
+			isPositive = (this.apply(start + Math.pow(10, -resolution)) > 0);
+		}
+
 		double trialValue = start;
 		int currentPower = maxPower;
 		while (currentPower <= resolution + 1) {
