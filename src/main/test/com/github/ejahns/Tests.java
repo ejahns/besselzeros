@@ -18,7 +18,7 @@ public class Tests {
         List<String> lines = FileUtils.readLines(testFile, "UTF-8");
         for (String line : lines) {
             List<String> values = Arrays.stream(line.split("\t")).collect(Collectors.toList());
-            Assert.assertEquals(values.get(3),Double.toString(BesselJ.findZero(Double.valueOf(values.get(0)),Integer.valueOf(values.get(1)),Integer.valueOf(values.get(2)))));
+            Assert.assertEquals(values.get(3), Double.toString(BesselJ.findZero(Double.valueOf(values.get(0)), Integer.valueOf(values.get(1)), Integer.valueOf(values.get(2)))));
         }
     }
 }

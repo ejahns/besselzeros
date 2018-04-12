@@ -86,10 +86,10 @@ public final class BesselJ {
      */
     private static double computeZeroExplicit(double index, int zeroNumber, int resolution) {
         double previousZero = 0;
-        while (zeroNumber-- > 0) {
-            previousZero = findZeroAfter(index, previousZero + Math.pow(10, -resolution), resolution);
+        while (zeroNumber-- > 1) {
+            previousZero = findZeroAfter(index, previousZero + 1, 0);
         }
-        return previousZero;
+        return findZeroAfter(index, previousZero + 1, resolution);
     }
 
     /**
